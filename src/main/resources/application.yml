@@ -1,0 +1,31 @@
+server:
+  error:
+    include-message: always
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/awakeseller
+    username: awakeseller
+    password: awakeseller
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always
+  security:
+    oauth2:
+      client:
+        registration:
+          etsy:
+            authorization-grant-type: client_credentials
+            client-id: awakeseller
+            client-secret: <>
+        provider:
+          etsy:
+            token-uri: https://api.etsy.com/v3/public/oauth/token
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
